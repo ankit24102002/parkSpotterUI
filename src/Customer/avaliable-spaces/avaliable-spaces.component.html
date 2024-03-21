@@ -1,0 +1,108 @@
+<!-- <div *ngIf="!errorMessage" class="error-message"> -->
+
+<div class="cont">
+  <div class="top">
+    <div class="filter">Spaces with in
+      <select [(ngModel)]=selectedDistance (change)="onDistanceChange()">
+        <option value=1>1 km</option>
+        <option value=2>2 km</option>
+        <option value=3>3 km</option>
+      </select>
+    </div>
+
+    <div class="outer-heading">
+      <div>
+        <div class="heading-upper">
+          <h1 class="heading">
+            Available Spaces
+          </h1>
+        </div>
+      </div>
+    </div>
+
+    <!-- <form class="d-flex" role="search">
+    <input class="form-control me-2" type="search" placeholder="Search location" aria-label="Search">
+    <button class="btn btn-outline-success" type="submit">Search</button>
+  </form> -->
+
+    <div class="search-box-1">
+      <div class="row-1"  [ngClass]="{'row-1': cornercss, 'rounded-bottom': !cornercss}">
+        <input type="text" id="input-box" placeholder="SearchLocation..." autocomplete="off" [(ngModel)]="searchInput">
+        <button (click)="fetchDatageo()"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
+      <div *ngIf="showResultBox">
+        <div class="result-box" *ngIf="showResultBox">
+
+          <li (click)="passLat(item); selectInput(item.display_name);hideResultBox()"
+            *ngFor="let item of items.slice(0,4)"> {{ item.display_name }}</li>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="horizontal-line" (click)="hideResultBox()">
+    <div class="card-container">
+
+
+      <div class="image" *ngIf="sortedData.length==0">
+        <img src="assets/notavaliable.png" alt="Space Image">
+      </div>
+     
+
+
+      <mat-card class="example-card"
+        *ngFor="let user of sortedData| paginate: { itemsPerPage: itemsPerPage, currentPage: p }" >
+        <div class="outer-card" *ngIf="sortedData.length>0">
+          <mat-card-header>
+            <div class="title-sub-container">
+              <div class="title">Owner Name: {{ user.username| capitalize }}{{this.Rate}}</div>
+              <div class="subtitle">Price Per Hour: ₹{{ (user.price +this.Rate)/2| number:'1.0-0'}}</div>
+            </div>
+            <div>
+              <div mat-card-avatar class="example-header-image"></div>
+            </div>
+          </mat-card-header>
+          <img mat-card-image class="card-image"
+            [src]="basePath+ user.space_Image_Path||'assets/Space_Owner_Images/space1.jpg'" alt="Photo of a Shiba Inu"
+            width="330px" height="230px">
+          <div class="mat-content">
+            <mat-card-content>
+            </mat-card-content>
+            <mat-card-content>
+              <p class="address"> <i class="fa fa-road" aria-hidden="true"></i>{{ user.address_Appartment_no |
+                capitalize
+                }} {{user.address_street| capitalize }}, {{user.address_District| capitalize }}</p>
+            </mat-card-content>
+            <mat-card-content>
+              <div class="fav-distance">
+             <!-- fa-solid fa-location-dot  -->
+                <span class="   fa-solid fa-person-walking  " style="margin-right: 6px;"> </span> {{user.distance| number:'1.2-2'}} km 
+              </div>
+            </mat-card-content>
+            <mat-card-content>
+              <div class="fav-distance">
+                <app-star-rating [rating]="user.averageRating" [readonly]="true" style="margin-right: 6px;"></app-star-rating> 
+               {{user.numberOfReviews}} ratings
+              </div>
+            </mat-card-content>
+          </div>
+          <mat-card-actions class="button-place">
+            <button mat-button class="button-container" (click)="onButtonClick(user)">Space Detail</button>
+          </mat-card-actions>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+
+  <div *ngIf="sortedData.length>0">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>
+<!-- </div> -->
+
+<!-- In your component.html file -->
+
+<div *ngIf="errorMessage" class="error-message">
+  <!-- {{ errorMessage }}
+</div> -->

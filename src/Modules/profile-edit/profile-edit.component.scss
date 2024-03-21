@@ -1,0 +1,290 @@
+/* all */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+
+.row{
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+    height: 100vh;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+:root {
+  --main-blue: #71b7e6;
+  --main-purple: #9b59b6;
+  --main-grey: #ccc;
+  --sub-grey: #d9d9d9;
+}
+
+// body {
+//   display: flex;
+//   height: 100vh;
+//   justify-content: center; /*center vertically */
+//   align-items: center; /* center horizontally */
+//   background: linear-gradient(135deg, var(--main-blue), var(--main-purple));
+//   padding: 10px;
+  
+
+
+// }
+/* container and form */
+.container {
+    position: absolute;
+  max-width: 350px;
+  width: 100%;
+  background: #dad6d6;
+  padding: 25px 30px;
+  border-radius: 5px;
+  height: 60vh;
+   margin-top: 10px;
+  
+}
+.container .title {
+    text-align: center;
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+}
+
+.container .title::before {
+  content: "";
+  position: absolute;
+  height: 3.5px;
+  width: 30px;
+  background: linear-gradient(135deg, var(--main-blue), var(--main-purple));
+  left: 0;
+  bottom: 0;
+}
+
+.container form .user__details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0px 0 0px 0;
+}
+/* inside the form user details */
+form .user__details .input__box {
+  width: calc(100% / 2 - 20px);
+  margin-bottom: 15px;
+}
+
+.user__details .input__box .details {
+  font-weight: 500;
+  margin-bottom: 5px;
+  display: block;
+}
+.user__details .input__box input {
+  height: 45px;
+  width: 100%;
+  outline: none;
+  width: 290px;
+  border-radius: 5px;
+  border: 1px solid var(--main-grey);
+  padding-left: 15px;
+  font-size: 16px;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+
+
+
+.user__details .input__box input:focus,
+.user__details .input__box input:valid {
+  border-color: var(--main-purple);
+}
+
+/* inside the form gender details */
+
+.cur-location-btn{
+  // background-color: #dad6d6;
+  background-color: whitesmoke;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  padding-right: 4px;
+ 
+  border-color: white;
+}
+
+form .gender__details .gender__title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+form .gender__details .category {
+  display: flex;
+  width: 80%;
+  margin: 15px 0;
+  justify-content: space-between;
+}
+
+.gender__details .category label {
+  display: flex;
+  align-items: center;
+}
+
+.gender__details .category .dot {
+  height: 18px;
+  width: 18px;
+  background: var(--sub-grey);
+  border-radius: 50%;
+  margin: 10px;
+  border: 5px solid transparent;
+  transition: all 0.3s ease;
+}
+
+#dot-1:checked ~ .category .one,
+#dot-2:checked ~ .category .two,
+#dot-3:checked ~ .category .three {
+  border-color: var(--sub-grey);
+  background: var(--main-purple);
+}
+
+form input[type="radio"] {
+  display: none;
+}
+
+/* submit button */
+form .button {
+  height: 45px;
+  margin: 45px 0;
+  background-color: #71b7e6;
+}
+
+form .button input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  color: #ffffff;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 5px;
+  background: linear-gradient(135deg, var(--main-blue), var(--main-purple));
+  transition: all 0.3s ease;
+}
+
+form .button input:hover {
+  background: linear-gradient(-135deg, var(--main-blue), var(--main-purple));
+}
+
+@media only screen and (max-width: 584px) {
+  .container {
+    max-width: 100%;
+  }
+
+  form .user__details .input__box {
+    margin-bottom: 15px;
+    width: 100%;
+  }
+
+  form .gender__details .category {
+    width: 100%;
+  }
+
+  .container form .user__details {
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+
+  .user__details::-webkit-scrollbar {
+    width: 0;
+  }
+
+
+
+}
+
+.tabs {
+  display: flex;
+  justify-content:center;
+  // margin-bottom: 20px;
+  // margin-left: 20px;
+  padding-top: 15px;
+}
+.button-1 {
+  background-color: #4CAF50;
+  border: none;
+  color: black;
+  text-align: center;
+  width: 200px;
+  margin: 4px 0px;
+  cursor: pointer;
+  
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px 40px;
+}
+
+.button-2 {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: black;
+  text-align: center;
+  width: 200px;
+ // display: inline-block;
+  font-size: 16px;
+  margin: 4px 0px;
+  cursor: pointer;
+
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px 40px;
+}
+.blurred input {
+  filter: blur(0.7px); /* Adjust the blur effect as needed */
+}
+.blurred1{
+  filter: blur(0.7px); /* Adjust the blur effect as needed */
+}
+
+
+
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+/* Show the tooltip text when hovering */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}

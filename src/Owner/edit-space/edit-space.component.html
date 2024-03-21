@@ -1,0 +1,146 @@
+<app-owner-navbar></app-owner-navbar>
+
+<!-- <div class="row">
+<div class="container">
+    <div class="title">Add Space</div>
+    <form [formGroup]="editspaceForm">
+      <div class="user__details">
+
+        <div class="input__box">
+          <span class="details">Longitude</span>
+          <input type="text" formControlName="longitude" [(ngModel)]="longitude" placeholder="Latitude">
+          <small *ngIf="editspaceForm.controls['longitude'].dirty&&editspaceForm.hasError('required','longitude')" class="text-danger">*longitude is required</small>
+          <small *ngIf="editspaceForm.controls['longitude'].dirty&&editspaceForm.get('longitude')?.errors?.['invalidLongitude']" class="text-danger">Invalid longitude!</small>       
+       
+        </div>
+
+        <div class="input__box">
+          <span class="details">Latitude</span>
+          <input type="text" formControlName="latitude" [(ngModel)]="latitude" placeholder="Latitude">
+          <small *ngIf="editspaceForm.controls['latitude'].dirty&&editspaceForm.hasError('required','latitude')" class="text-danger">*latitude is required</small>
+          <small *ngIf="editspaceForm.controls['latitude'].dirty&&editspaceForm.get('latitude')?.errors?.['invalidLongitude']" class="text-danger">Invalid latitude!</small>       
+
+        </div>
+
+        <div ><button class="cur-location-btn" type="submit"  (click)="cordinate()"> Pass Current location</button>
+        </div>
+        </div>
+
+        <div class="user__details">
+
+        <div class="input__box">
+          <span class="details">Appartment no.</span>
+          <input type="text"  formControlName="address_Appartment_no" [(ngModel)]="address_Appartment_no" placeholder="Appartment-no" maxlength="15">
+          <small *ngIf="editspaceForm.controls['address_Appartment_no'].dirty&&editspaceForm.hasError('required','address_Appartment_no')" class="text-danger">*address_Appartment_no is required</small>
+          <small *ngIf="editspaceForm.get('address_Appartment_no')?.errors?.['maxlength']" class="text-danger">
+            Your input exceeds the maximum length (12 characters).
+          </small>
+        </div>
+
+        <div class="input__box">
+          <span class="details">Street</span>
+          <input type="text" formControlName="address_street" [(ngModel)]="address_street" placeholder="Street" maxlength="13">
+          <small *ngIf="editspaceForm.controls['address_street'].dirty&&editspaceForm.hasError('required','address_street')" class="text-danger">*address_street is required</small>
+          <small *ngIf="editspaceForm.get('address_street')?.errors?.['maxlength']" class="text-danger">
+            Your input exceeds the maximum length (12 characters).
+          </small>
+        </div>
+
+        <div class="input__box">
+          <span class="details">District</span>
+          <input type="text"  formControlName="address_District" [(ngModel)]="address_District" placeholder="District" maxlength="13" >
+          <small *ngIf="editspaceForm.controls['address_District'].dirty&&editspaceForm.hasError('required','address_District')" class="text-danger">*address_District is required</small>
+          <small *ngIf="editspaceForm.get('address_District')?.errors?.['maxlength']" class="text-danger">
+            Your input exceeds the maximum length (12 characters).
+          </small>
+        </div>
+
+        <div class="input__box">
+            <span class="details"> Price per day</span>
+            <input type="text" formControlName="price" [(ngModel)]="price">
+            <small *ngIf="editspaceForm.controls['price'].dirty&&editspaceForm.hasError('required','address_Dispricetrict')" class="text-danger">*price is required</small>
+
+          </div>       
+
+        <div class="input__box">
+          <span class="details">Image Path</span>
+          <input type="text"  formControlName="space_Image_Path" [(ngModel)]="space_Image_Path"  placeholder="Image-path">
+          <small *ngIf="editspaceForm.controls['space_Image_Path'].dirty&&editspaceForm.hasError('required','space_Image_Path')" class="text-danger">*space_Image_Path is required</small>
+
+        </div>
+
+        <div>
+            <label for="textfield">Description:</label><br>
+            <textarea id="textfield" formControlName="description" [(ngModel)]="description"  rows="2" cols="50" placeholder="Description" ></textarea><br>
+            <small *ngIf="editspaceForm.controls['description'].dirty&&editspaceForm.hasError('required','description')" class="text-danger">*description is required</small>
+            <small *ngIf="editspaceForm.get('description')?.errors?.['maxlength']" class="text-danger">
+              Your input exceeds the maximum length (30 characters).
+            </small>
+
+          </div>
+
+      </div>
+    
+      <div class="button">
+        <input type="submit"  (click)="onSignup()">
+      </div>
+    </form>
+  </div>
+</div> -->
+
+
+
+
+<section>
+  <form [formGroup]="editspaceForm">
+            <div class="contact_field">
+              <b>
+                <h3 class="heading-3">Update Space</h3>
+              </b>
+              <p class="passage">Input your space data for accurate analysis and insights into celestial phenomena and exploration.</p>
+            
+              <input class="input"  type="text" formControlName="longitude" [(ngModel)]="longitude" placeholder="Latitude">
+          <small *ngIf="editspaceForm.controls['longitude'].dirty&&editspaceForm.hasError('required','longitude')" class="text-danger">*required</small>
+          <small *ngIf="editspaceForm.controls['longitude'].dirty&&editspaceForm.get('longitude')?.errors?.['invalidLongitude']" class="text-danger">Invalid Longitude!</small>       
+
+                <input class="input"  type="text" formControlName="latitude" [(ngModel)]="latitude" placeholder="Latitude">
+          <small *ngIf="editspaceForm.controls['latitude'].dirty&&editspaceForm.hasError('required','latitude')" class="text-danger">*required</small>
+          <small *ngIf="editspaceForm.controls['latitude'].dirty&&editspaceForm.get('latitude')?.errors?.['invalidLongitude']" class="text-danger">Invalid latitude!</small>       
+
+          <button class="cordinate-btn" type="submit"  (click)="cordinate()"> Pass Current location</button>
+
+          <input class="input"  type="text"  formControlName="address_Appartment_no" [(ngModel)]="address_Appartment_no" placeholder="Appartment-no" maxlength="15">
+          <small *ngIf="editspaceForm.controls['address_Appartment_no'].dirty&&editspaceForm.hasError('required','address_Appartment_no')" class="text-danger">*required</small>
+          <small *ngIf="editspaceForm.get('address_Appartment_no')?.errors?.['maxlength']" class="text-danger">
+            Your input exceeds the maximum length (12 characters).
+          </small>
+
+          <input class="input"  type="text" formControlName="address_street" [(ngModel)]="address_street" placeholder="Street" maxlength="13">
+          <small *ngIf="editspaceForm.controls['address_street'].dirty&&editspaceForm.hasError('required','address_street')" class="text-danger">*required</small>
+          <small *ngIf="editspaceForm.get('address_street')?.errors?.['maxlength']" class="text-danger">
+            Your input exceeds the maximum length (12 characters).
+          </small>
+
+          <input class="input"  type="text"  formControlName="address_District" [(ngModel)]="address_District" placeholder="District" maxlength="13" >
+          <small *ngIf="editspaceForm.controls['address_District'].dirty&&editspaceForm.hasError('required','address_District')" class="text-danger">*required</small>
+          <small *ngIf="editspaceForm.get('address_District')?.errors?.['maxlength']" class="text-danger">
+            Your input exceeds the maximum length (12 characters).
+          </small>
+
+              <input  class="input" type="text" formControlName="price" [(ngModel)]="price" placeholder="Price per hour">
+            <small *ngIf="editspaceForm.controls['price'].dirty&&editspaceForm.hasError('required','price')" class="text-danger">*required</small>
+            <small *ngIf="editspaceForm.get('price')?.invalid && editspaceForm.get('price')?.errors?.['pattern']" class="text-danger">Please enter a valid integer.</small>
+
+            <input class="input"  type="text"  formControlName="space_Image_Path" [(ngModel)]="space_Image_Path"  placeholder="Image-path">
+            <small *ngIf="editspaceForm.controls['space_Image_Path'].dirty&&editspaceForm.hasError('required','space_Image_Path')" class="text-danger">*required</small>
+  
+            <textarea class="input"  id="textfield" formControlName="description" [(ngModel)]="description"  rows="2" cols="50" placeholder="Description" ></textarea>
+            <small *ngIf="editspaceForm.controls['description'].dirty&&editspaceForm.hasError('required','description')" class="text-danger">*description is required</small>
+            <small *ngIf="editspaceForm.get('description')?.errors?.['maxlength']" class="text-danger">
+              Your input exceeds the maximum length (50 characters).
+            </small>
+            
+              <button class="contact_form_submit" (click)="saveChanges()">Update</button>    
+            </div>
+          </form>
+</section>

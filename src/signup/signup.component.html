@@ -1,0 +1,108 @@
+<div class="outer">
+    <div class="container">
+        <div class="row">
+            <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3" style="margin-left: 400px;">
+                <div class="panel border bg-white">
+                    <div class="panel-heading">
+                        <h3 class="pt-3 font-weight-bold">Sign Up</h3>
+                    </div>
+                    <div class="panel-body p-3">
+                        <form [formGroup]="signUpForm">
+                            <div class="form-group pt-3">
+                                <div class="input-feild">
+                                    <span class="fa fa-user p-2"></span>
+                                    <input (input)="searchUsernames($event)" formControlName="username"
+                                        [(ngModel)]="username" type="text" placeholder="Username" ng-minlength="5">
+
+                                </div>
+                            </div>
+                            <small *ngIf="note" [ngStyle]="{'color': noteColor}">{{note}}</small>
+                            <small *ngIf="note && note !== 'This is a valid username.'" style="color: green"> {{
+                                this.suggestedUsername}}</small>
+
+                            <small
+                                *ngIf="signUpForm.controls['username'].dirty&&signUpForm.hasError('required','username')"
+                                class="text-danger">*Username is required</small>
+                            <small *ngIf="signUpForm.get('username')?.errors?.['minlength']" class="text-danger">
+                                * Name must be at least 4 characters long
+                            </small>
+                            <small
+                                *ngIf="signUpForm.controls['username'].dirty&&signUpForm.get('username')?.errors?.['singleWord']"
+                                class="text-danger">* Username must contain only one word</small>
+                            <div class="form-group pt-3">
+                                <div class="input-feild">
+                                    <span class="fa fa-user p-2"></span>
+                                    <input formControlName="email" type="text" placeholder="Email" [(ngModel)]="email">
+                                </div>
+                            </div>
+                            <small *ngIf="signUpForm.controls['email'].dirty&&signUpForm.hasError('required','email')"
+                                class="text-danger">*Email is required</small>
+                            <small *ngIf="signUpForm.hasError('email','email')" class="text-danger">*Email is
+                                Invalid</small>
+                            <div class="form-group pt-3">
+                                <div class="input-feild">
+                                    <span class="fa fa-user p-2"></span>
+                                    <input formControlName="phoneno" type="text" placeholder="Phone No."
+                                        [(ngModel)]="phoneno">
+                                </div>
+                            </div>
+                            <small
+                                *ngIf="signUpForm.controls['phoneno'].dirty&&signUpForm.hasError('required','phoneno')"
+                                class="text-danger">*phone No. is required</small>
+                            <small
+                                *ngIf="signUpForm.controls['phoneno'].touched&&signUpForm.controls['phoneno'].dirty&&signUpForm.get('phoneno')?.errors?.['invalidMobileNumber']"
+                                class="text-danger">*Invalid mobile number format</small>
+
+
+
+                            <div class="form-group pt-3">
+                                <div class="outer-dropdown">
+                                    <div class="innerdropdown-1">
+                                        <div class="innerdropdown-1">
+                                            <span class="fa fa-user p-2"></span>
+                                            <label for="signup_type">Sign Up As:</label>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <select formControlName="rolename" class="innerdropdown-2" type="signup_type"
+                                            required [(ngModel)]="rolename">
+                                            <option value="">Select One</option>
+                                            <option value="customer">Customer</option>
+                                            <option value="owner">Owner</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <small
+                                *ngIf="signUpForm.controls['rolename'].dirty&&signUpForm.hasError('required','rolename')"
+                                class="text-danger">*Role is required</small>
+                            <div class="form-group pt-3">
+                                <div class="input-feild">
+                                    <span class="fa fa-lock p-2"></span>
+                                    <input formControlName="password" [type]="type" placeholder="Password"
+                                        [(ngModel)]="password">
+                                    <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
+                                </div>
+                            </div>
+                            <small
+                                *ngIf="signUpForm.controls['password'].dirty&&signUpForm.hasError('required','password')"
+                                class="text-danger">*Password is required</small>
+                            <small
+                                *ngIf="signUpForm.controls['password'].dirty&&signUpForm.get('password')?.errors?.['weakPassword']"
+                                class="text-danger">minimum length of password 6 and number required</small>
+
+
+
+                            <button type="submit" class="btn btn-primary btn-block mt-4 w-100" (click)="onSignup()">Sign
+                                Up</button>
+                            <div class="teyxt-center pt-4 text-muted">Already have account? <a id="forget"
+                                    class="font-weight-bold" (click)="onLogin()"> Login</a></div>
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

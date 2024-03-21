@@ -1,0 +1,39 @@
+
+.button-1 {
+    background-color: #fff;
+    border: none;
+    color: black;
+    text-align: center;
+    width: 200px;
+    margin: 4px 0px;
+    cursor: pointer;
+    font-size:16px;
+    
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 40px;
+  }
+  
+  .button-2 {
+    background-color: #fff; /* Green */
+    border: none;
+    color: black;
+    text-align: center;
+    width: 200px;
+   // display: inline-block;
+    font-size: 16px;
+    margin: 4px 0px;
+    cursor: pointer;
+ 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 40px;
+  }
+
+  .active {
+    background-color: #4CAF50; /* Change to desired color */
+    color: white; /* Change to desired color */
+    display: inline-flex;
+  }
+
+  .tabs{
+    justify-content: center;
+  }

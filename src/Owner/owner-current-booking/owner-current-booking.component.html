@@ -1,0 +1,50 @@
+<app-owner-navbar></app-owner-navbar>
+
+
+<div class="containor">
+  <div class="row">
+    <div class="inner-div" *ngFor="let space of userData">
+      <div class="img-div">
+        <img class="img" [src]="basePath+space.space_Image_Path || 'assets/Space_Owner_Images/alternate.png'"
+          alt="Space Image"  width="612px" height="408px">
+      </div>
+      <div class="data-div">
+        <div class="owner-info">
+          <h4><b>Booking Related Information</b></h4>
+          <div class="info-item">
+            <span class="label">Customer Name:</span>
+            <span class="value"> {{ space.customername| capitalize }}</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Customer Contact:</span>
+            <span class="value"> {{ space.phone_Number }}</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Customer Email:</span>
+            <span class="value"> {{ space.email }}</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Amount Recived </span>
+            <span class="value">₹{{ space.booking_amount }}</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Space Description: </span>
+            <span class="value">{{ space.description| capitalize }}</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Address: </span>
+            <span class="value"> {{space.address_Appartment_no| capitalize}}{{space.address_street|
+              capitalize}}{{space.address_District| capitalize}}, India</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Start Date: </span>
+            <!-- <span class="value"> {{space.startBooking|date:'dd-MM-yy'}}</span> -->
+            <span class="value">{{ getFormattedStartDate(space.startBooking) | date: 'mediumDate':'IST'}} {{ getFormattedStartDate(space.startBooking) | date: 'mediumTime':'IST'}}</span>
+          </div>
+          <span class="label">End Date: </span>
+          <!-- <span class="value"> {{space.endBooking|date:'dd-MM-yy'}}</span> -->
+          <span class="value"> {{ getFormattedStartDate(space.endBooking) | date: 'mediumDate':'IST'}} {{ getFormattedStartDate(space.endBooking) | date: 'mediumTime':'IST'}}</span>
+        </div>
+      </div>
+    </div>
+  </div>

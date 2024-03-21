@@ -1,0 +1,38 @@
+<app-owner-navbar></app-owner-navbar>
+<div class="container">
+  <div class="header">
+    <h1 class="title">Past Bookings</h1>
+    <hr>
+  </div>
+  <div *ngIf="Products.length==0">
+    <div class="image">
+      <h5>No Past booking</h5>
+      <img src="assets/parkingimage/bookingimage.png" alt="Space Image">
+    </div>
+  </div>
+  <div *ngIf="Products.length>0">
+    <div class="card" *ngFor="let cb of Products">
+      <div class="card-header">Booking Id-{{cb.bookingid}}</div>
+      <div class="card-body">
+        <div class="info-line">
+          <p><strong>User Name:</strong> {{cb.c_username| capitalize}}</p>
+          <p><strong>Parking Address:</strong> {{cb.address_Appartment_no | capitalize}} {{cb.address_street |
+            capitalize}} {{cb.address_District | capitalize}}, India</p>
+          <p><strong>Email:</strong> {{cb.c_email}} </p>
+          <p><strong>Phone no:</strong> {{cb.c_phoneno}}</p>
+        </div>
+        <div class="info-line">
+          <p><strong>Started Date:</strong>{{ getFormattedStartDate(cb.startdate) | date: 'mediumDate' : 'IST' }} {{getFormattedStartDate(cb.startdate)| date: 'mediumTime':'IST'}}</p>
+          <!-- <p><strong>Started Date:</strong> {{cb.startdate| date: 'mediumTime':'IST'}}</p> -->
+          <p><strong>End Date:</strong>{{ getFormattedStartDate(cb.startdate) | date: 'mediumDate' : 'IST' }}  {{getFormattedStartDate(cb.enddate)| date: 'mediumTime':'IST'}}</p>
+          <!-- <p><strong>End Date:</strong> {{cb.enddate| date: 'mediumTime':'IST'}}</p> -->
+          <p><strong>Rent:</strong> ₹{{cb.bookedamount}}</p>
+        </div>
+        <div class="info-line-1">
+          <!-- <p><strong>Description:</strong> {{cb.description}}</p> -->
+          <strong> Rated: </strong> <app-star-rating [rating]="cb.rating" [readonly]="true"></app-star-rating>
+        </div>
+      </div>
+
+    </div>
+  </div>

@@ -1,0 +1,14 @@
+<app-admin-navbar></app-admin-navbar>
+<div class="tabs">
+<button class="button-1" (click)="onCurrentBookingsClick()" [class.active]="currentButtonActive">Owner Detail</button>
+<button class="button-2" (click)="onPastBookingsClick()" [class.active]="pastButtonActive">Customer Detail</button>
+</div>
+
+  <div *ngIf="!showUserDetail">
+    <app-admin-customer-list></app-admin-customer-list>
+  </div>
+  
+  <div *ngIf="showUserDetail">
+    <app-admin-owner-list></app-admin-owner-list>
+  </div>
+  

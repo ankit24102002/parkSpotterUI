@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary " data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand">ParkSpotter</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item navbar-item-margin">
+          <a class="nav-link active" aria-current="page" (click)="home()">Home</a>
+        </li>
+        <li class="nav-item navbar-item-margin">
+          <a class="nav-link active" (click)="CurrentAndPastbooking()">My Bookings</a>
+        </li>
+        <li class="nav-item navbar-item-margin">
+          <a class="nav-link active" (click)="contactus()">Contact Us</a>
+        </li>
+      </ul>
+      <!-- <ul class="navbar-nav mb-2 mb-lg-0">
+          <li class="nav-item">
+          
+            <a class="nav-link active"(click)="onLogOut()">   LogOut</a>
+          </li>
+        </ul> -->
+      <span class="navbar-text me-3">
+        Hi {{this.keyvalue| capitalize}}
+      </span>
+      <div class="dropdown">
+        <a class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-fw fa-user"></i>
+        </a>
+        <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
+     
+          <a class="dropdown-item" (click)="profile()">Profile</a>
+          <a class="dropdown-item" (click)="onLogOut()">LogOut</a>
+        </div>
+      </div>
+      <!-- <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search location" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form> -->
+    </div>
+  </div>
+</nav>
+<i class=""></i>

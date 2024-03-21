@@ -1,0 +1,32 @@
+.dropdown {
+    direction: rtl;
+    
+  }
+  .dropdown-menu{
+    background-color: lightgrey;
+  }
+  .dropdown-item{
+    color: black;
+  }
+  .dropdown-item:hover {
+    color: white;
+  }
+  .dropdown-item.clicked {
+    background-color: black;
+     /* Or any other color you want to set */
+  }
+
+  .dropdown-item:focus,
+.dropdown-item:active {
+  outline: none; /* Remove default focus/active outline */
+  background-color: black;
+}
+
+
+.navbar-item-margin{
+  margin-right: 10px;
+}
+.navbar-brand{
+  margin-left: 20px;
+  margin-right: 20px;
+}

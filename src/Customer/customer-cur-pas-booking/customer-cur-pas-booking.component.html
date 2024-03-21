@@ -1,0 +1,44 @@
+<app-customer-navbar></app-customer-navbar>
+<div class="container">
+  <div class="header">
+    <h1 class="title">My Bookings</h1>
+    <hr>
+    <div class="tabs">
+      <button class="button-1" (click)="onCurrentBookingsClick()" [class.active]="currentButtonActive">Active</button>
+      <button class="button-2" (click)="onPastBookingsClick()" [class.active]="pastButtonActive">History</button>
+    </div>
+  </div>
+  <div *ngIf="currentBookings.length==0">
+    <div class="image">
+      <img src="assets/parkingimage/bookingimage.png" alt="Space Image">
+    </div>
+  </div>
+  <div *ngIf="currentBookings.length>0">
+    <div class="card" *ngFor="let cb of currentBookings">
+      <div class="card-header">Booking Id-{{cb.bookingid}}</div>
+      <div class="card-body">
+        <div class="info-line">
+          <p><strong>Owner Name:</strong> {{cb.ownerUsername| capitalize}}</p>
+          <p><strong>Parking Address:</strong> {{cb.appartmant | capitalize}} {{cb.street| capitalize }}, {{cb.district
+            | capitalize}}, India</p>
+          <p><strong>Email:</strong> {{cb.oEmail}}</p>
+        </div>
+        <div class="info-line">
+          <p><strong>Phone no:</strong> {{cb.cPhone_Number}}</p>
+          <p><strong>Rent:</strong> ₹{{cb.booking_amount}}</p>
+          <p><strong>Description:</strong> {{cb.description| capitalize}}</p>
+        </div>
+        <div class="info-line">
+          <p><strong>Started Date:</strong> {{ getFormattedStartDate(cb.startBooking) | date: 'mediumDate':'IST'}} {{ getFormattedStartDate(cb.startBooking) | date: 'mediumTime':'IST'}}</p>
+          <!-- <p><strong>Started Date:</strong> {{cb.startBooking| date: 'mediumTime':'IST'}}</p> -->
+          <p><strong>End Date:</strong> {{ getFormattedStartDate(cb.endBooking) | date: 'mediumDate':'IST'}} {{ getFormattedStartDate(cb.endBooking) | date: 'mediumTime':'IST'}}</p>
+          <!-- <p><strong>End Date:</strong> {{cb.endBooking| date: 'mediumTime':'IST'}}</p> -->
+        </div>
+        <div class="info-line-1">
+          <p><strong>Give Rating:</strong></p> <app-star-rating [rating]="cb.rating"
+            (ratingSet)="onRatingSet($event,cb.spaceID,cb.ratingid,cb.bookingid)"></app-star-rating>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

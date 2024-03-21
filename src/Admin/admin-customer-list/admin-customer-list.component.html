@@ -1,0 +1,79 @@
+<div fxLayout fxLayoutAlign="center center">
+
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search columns" #input>
+  </mat-form-field>
+
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="serialNumber">
+      <th mat-header-cell *matHeaderCellDef> Sr. No </th>
+      <td mat-cell *matCellDef="let i=index"> {{i+1}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Username">
+      <th mat-header-cell *matHeaderCellDef> Username </th>
+      <td mat-cell *matCellDef="let user"> {{user.username| capitalize}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="Email">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let user"> {{user.email}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="Phoneno">
+      <th mat-header-cell *matHeaderCellDef> Phone No </th>
+      <td mat-cell *matCellDef="let user"> {{user.phoneno}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="State">
+      <th mat-header-cell *matHeaderCellDef> Active or Inactive </th>
+
+      <td mat-cell *matCellDef="let user">
+
+        <div *ngIf="user.enable==true">
+          Active
+        </div>
+        <div *ngIf="user.enable==false">
+          Inactive
+        </div>
+      </td>
+
+
+
+
+    </ng-container>
+
+
+
+
+    <ng-container matColumnDef="Enable">
+      <th mat-header-cell *matHeaderCellDef> Enable </th>
+      <td mat-cell *matCellDef="let user">
+        <button mat-icon-button color="primary" (click)="enable(user)">
+          Enable
+        </button>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="Disable">
+      <th mat-header-cell *matHeaderCellDef> Disable </th>
+      <td mat-cell *matCellDef="let user">
+        <button mat-icon-button color="primary" (click)="disable(user)">
+          Disable
+        </button>
+      </td>
+    </ng-container>
+
+
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+
+<mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page" showFirstLastButtons>
+</mat-paginator>

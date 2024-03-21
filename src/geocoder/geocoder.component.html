@@ -1,0 +1,59 @@
+<!-- <p>geocoder works!</p>
+<div class="geocoder-container">
+    <h2>Geocoder</h2>
+    <input type="text" [(ngModel)]="address" placeholder="Enter address">
+    <button (click)="geocodeAddress()">Geocode</button>
+    <div *ngIf="latitude && longitude">
+      <p>Latitude: {{ latitude }}</p>
+      <p>Longitude: {{ longitude }}</p>
+    </div>
+  </div>-->
+
+
+
+   <!-- <input type="text" placeholder="Search..." [(ngModel)]="searchInput">
+   <button (click)="fetchData()">Search</button>
+   <div *ngFor="let item of items">
+    <p>{{ item.display_name }}</p>
+  </div> -->
+
+
+
+
+  <!-- <div>
+    <input type="text" placeholder="Search location..." [(ngModel)]="searchInput">
+    <button (click)="fetchData()">Search</button>
+  </div>
+  <div *ngIf="items.length > 0" class="dropdown" (click)="onDropdownClick($event)">
+    <button class="dropbtn">Select a Location</button>
+    <div class="dropdown-content">
+      <button *ngFor="let item of items" (click)="selectLocation(item)">
+        {{ item.display_name }}
+      </button>
+    </div>
+  </div> -->
+
+
+
+<div class="search-box-1">
+    <div class="row-1">
+      <input type="text" id="input-box" placeholder="SearchLocation..." autocomplete="off" [(ngModel)]="searchInput">
+      <button (click)="fetchData()"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+    <div *ngIf="showResultBox">
+    <div class="result-box" *ngFor="let item of items" >
+      <ul>
+        <li (click)="passLat(item); selectInput(item.display_name);hideResultBox()">  {{ item.display_name }}</li>
+      </ul>
+    </div>
+  </div>
+  </div>
+
+
+
+
+
+  
+  
+  
+  

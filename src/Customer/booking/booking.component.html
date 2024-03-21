@@ -1,0 +1,113 @@
+<!-- <div class="containor">
+  <div>
+    <img src="assets/parkingimage/parking.png" alt="Space Image">
+  </div>
+  <div>
+    <div class="feild">
+      <div>
+      <b>From : </b>
+        <mat-form-field>
+          <input matInput [matDatepicker]="startDatePicker" data-date-format="mm-dd-yyyy" placeholder="Start Date"
+            [(ngModel)]="startDate" (dateChange)="calculateFare()" [min]="minStartDate">
+          <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #startDatePicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <b>To : </b>
+        <mat-form-field>
+          <input matInput [matDatepicker]="endDatePicker" placeholder="End Date" [(ngModel)]="endDate"
+            (dateChange)="calculateFare()" [min]="minEndDate">
+          <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #endDatePicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+    </div>
+
+    <div class="data-div">
+      <div class="owner-info">
+        <h4><b>Booking Details</b></h4>
+        <div class="info-item">
+          <span class="label">Start Date:</span>
+          <span class="value"> {{ startDate|date:'dd-MM-yy' }}</span>
+        </div>
+        <div class="info-item">
+          <span class="label">End Date: </span>
+          <span class="value"> {{ endDate |date:'dd-MM-yy' }}</span>
+        </div>
+
+        <div class="info-item">
+          <span class="label">Rent:</span>
+          <span class="value"> ₹{{ fare }}</span>
+        </div>
+        <div class="info-item">
+          <span class="label">spaceId:</span>
+          <span class="value"> {{id}}</span>
+        </div>
+
+        <div class="button-div">
+          <button class="button-container" (click)="booking()">Book Space</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+<app-customer-navbar></app-customer-navbar>
+<div class="containor">
+  <div>
+    <img src="assets/parkingimage/parking.png" alt="Space Image">
+  </div>
+  <div>
+    <div class="feild">
+      <div style="margin-right: 20px;">
+        <igx-time-picker class="custom-time-picker" [(ngModel)]="startTime" mode="dialog"
+          [headerOrientation]="'vertical'" [disabled]="true">
+          <label igxLabel>From</label>
+        </igx-time-picker>
+      </div>
+      <div>
+        <igx-time-picker class="custom-time-picker" mode="dialog" [(ngModel)]="endTime" [headerOrientation]="'vertical'"
+          (ngModelChange)="onEndTimeChanged($event)">
+          <label igxLabel>To</label>
+        </igx-time-picker>
+      </div>
+    </div>
+
+    <div class="data-div">
+      <div class="owner-info">
+        <h4><b>Booking Details</b></h4>
+        <div class="info-item">
+          <span class="label">Start Time:</span>
+          <span class="value"> {{ startTime| date:'shortTime' }}</span>
+        </div>
+        <div class="info-item">
+          <span class="label">End Time: </span>
+          <span class="value"> {{ endTime| date:'shortTime' }}</span>
+        </div>
+
+        <div class="info-item">
+          <span class="label">Total Time:</span>
+          <span class="value"> {{  diffTime  }} </span>
+        </div>
+        <div class="info-item">
+          <span class="label">Rent:</span>
+          <span class="value"> ₹{{ fare | number:'1.0-0'}}</span>
+        </div>
+        <div class="info-item">
+          <span class="label">Space Id:</span>
+          <span class="value"> {{id}}</span>
+        </div>
+
+        <div class="button-div">
+          <button class="button-container" [disabled]="!bookingDisabled" (click)="booking()"
+            [matTooltip]="!bookingDisabled ? 'Please select different start and end times' : ''">
+            Book Space
+          </button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
