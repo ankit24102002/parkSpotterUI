@@ -75,11 +75,11 @@ export class AvaliableSpacesComponent implements OnInit {
 
     const body = {
       
-      Latitude: 29.5339371,
-      Longitude: 75.0421599,
+      // Latitude: 29.5339371,
+      // Longitude: 75.0421599,
 
-      // Latitude: latitude,
-      // Longitude: longitude,
+      Latitude: latitude,
+      Longitude: longitude,
       Distance: +this.selectedDistance
 
     };

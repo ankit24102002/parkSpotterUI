@@ -18,7 +18,8 @@ import { LoginService } from '../../Services-Customer/login.service';
   standalone: true,
   templateUrl: './admin-customer-list.component.html',
   styleUrl: './admin-customer-list.component.scss',
-  imports: [CommonModule, MatTableModule, MatPaginatorModule, MatFormFieldModule, MatInputModule, MatCardModule, MatIconModule, NgxPaginationModule, CapitalizePipe]
+  imports: [CommonModule, MatTableModule, MatPaginatorModule, MatFormFieldModule, MatInputModule, MatCardModule,
+     MatIconModule, NgxPaginationModule, CapitalizePipe]
 })
 export class AdminCustomerListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -97,18 +98,10 @@ export class AdminCustomerListComponent implements OnInit {
       if (data.message) {
         this.loginService.openSnackBar('disable');
         this.ngOnInit();
-        //   alert("disable")
       }
     },
     )
   }
-
-
-
-
-
-
-
 }
 export interface UserData {
   username: string;

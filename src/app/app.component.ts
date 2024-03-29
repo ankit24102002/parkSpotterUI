@@ -34,6 +34,7 @@ import { ProfileService } from '../Services-Common/profile.service';
 import { ContactUsComponent } from '../Modules/contact-us/contact-us.component';
 import { DetailSpaceService } from '../Services-Owner/detail-space.service';
 import { filter } from 'rxjs';
+import { FileUploadService } from '../Services-Admin/file-upload.service';
 
 
 @Component({
@@ -42,7 +43,7 @@ import { filter } from 'rxjs';
   providers: [LoginService, AuthService, LocalstorageService, CustomerNavbarComponent, DataService, SpacedetailService, BookingService,
     CurPasBookingService, OwnerNavbarComponent, AdminOwnerListComponent, AdminCustomerListComponent, AdminNavbarComponent, DatePipe,
     CurrentLocationComponent, GeocodingService, StarRatingComponent, ResetPasswordService, ProfileEditComponent, ProfileService,
-    ContactUsComponent, DetailSpaceService,
+    ContactUsComponent, DetailSpaceService,FileUploadService
   ],
   //tokenInterceptor
   templateUrl: './app.component.html',
