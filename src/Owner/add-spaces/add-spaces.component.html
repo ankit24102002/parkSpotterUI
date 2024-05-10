@@ -146,7 +146,7 @@
       <small *ngIf="addspaceForm.get('price')?.invalid && addspaceForm.get('price')?.errors?.['pattern']"
         class="text-danger">Please enter a valid integer.</small>
 
-      <input class="input" type="text" formControlName="space_Image_Path" [(ngModel)]="space_Image_Path"
+      <input class="input" type="file" (change)="onChangeFile($event)" [multiple]="false"  formControlName="space_Image_Path" [(ngModel)]="space_Image_Path"
         placeholder="Image-path">
       <small
         *ngIf="addspaceForm.controls['space_Image_Path'].dirty&&addspaceForm.hasError('required','space_Image_Path')"

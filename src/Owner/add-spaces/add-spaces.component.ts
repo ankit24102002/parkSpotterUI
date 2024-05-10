@@ -10,6 +10,7 @@ import { OwnerNavbarComponent } from "../owner-navbar/owner-navbar.component";
 import { LoginService } from '../../Services-Customer/login.service';
 import { AuthService } from '../../Services-Customer/auth.service';
 import { environment } from '../../Common/environment';
+import { Console } from 'console';
 
 @Component({
     selector: 'app-add-spaces',
@@ -76,6 +77,17 @@ export class AddSpacesComponent implements OnInit {
   cordinate() {
     this.getCurrentLocation();
   }
+  
+  onChangeFile(event : any){
+    if(event.target.files){
+      var reader = new FileReader;
+      reader.readAsDataURL(event.target.files[0]);
+      reader.onload = (event:any)=>{
+        this.space_Image_Path=event.target.result;
+        console.log(this.space_Image_Path);
+      }
+    }
+  }  
   
   onSignup() {
     this.submitted = true;
