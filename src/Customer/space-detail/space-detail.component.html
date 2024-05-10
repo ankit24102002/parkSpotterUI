@@ -35,10 +35,10 @@
               {{space.address_District| capitalize}}, India</span>
           </div>
           <div class="info-item" *ngIf="!isAvailable">
-            <span class="label">Will be available after</span>
-            <span class="value available"> {{ space.enddate| date: 'mediumTime':'IST'}} </span>
-           <br> <span class="value available"> {{ space.enddate}}  </span>
-           <br> <span class="value available">{{changedEndDateString| date: 'mediumTime':'IST'}}</span>
+            <span class="label">Will be available after: </span><span class="value available">{{changedEndDateString| date: 'mediumTime':'IST'}}</span>
+            <!-- <span class="value available"> {{ space.enddate| date: 'mediumTime':'IST'}} </span> -->
+           <!-- <br> <span class="value available"> {{ space.enddate}}  </span> -->
+           <!-- <br> <span class="value available">{{changedEndDateString| date: 'mediumTime':'IST'}}</span> -->
            
           </div>
           <div class="info-item" *ngIf="isAvailable">

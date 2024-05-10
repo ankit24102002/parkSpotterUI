@@ -56,7 +56,8 @@
         <div class="outer-card" *ngIf="sortedData.length>0">
           <mat-card-header>
             <div class="title-sub-container">
-              <div class="title">Owner Name: {{ user.username| capitalize }}{{this.Rate}}</div>
+              <div class="title">Owner Name: {{ user.username| capitalize }}</div>              <!-- {{this.Rate}} -->
+
               <div class="subtitle">Price Per Hour: ₹{{ (user.price +this.Rate)/2| number:'1.0-0'}}</div>
             </div>
             <div>

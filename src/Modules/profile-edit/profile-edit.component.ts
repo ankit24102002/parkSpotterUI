@@ -25,6 +25,8 @@ export class ProfileEditComponent implements OnInit {
   isEditable: boolean = false;
   baseUrl = environment.baseUrl;
   roleid!: number;
+  userImage: any;
+
 
   constructor(private loginService: LoginService, private usernameservice: ProfileService, private fb: FormBuilder, private auth: AuthService,
      private http: HttpClient, private router: Router,) { }
@@ -39,9 +41,24 @@ export class ProfileEditComponent implements OnInit {
     this.myForm = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(4), singleWordValidator,]],
       email: ['', [Validators.required, Validators.email]],
-      phoneno: ['', [Validators.required, mobileNumberValidator()]]
+      phoneno: ['', [Validators.required, mobileNumberValidator()]],
+      userImage: [''],
+
     });
     this.fetchDataAndSetFormValues();
+  }
+
+  onFileSelected(event: any) {
+    if (event.target.files) {
+      var reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]);
+      reader.onload = (event: any) => {
+        this.userImage = event.target.result;
+        this.myForm.patchValue({
+          userImage: this.userImage,
+        });
+      };
+    }
   }
 
   fetchDataAndSetFormValues() {

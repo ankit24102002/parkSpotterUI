@@ -54,6 +54,7 @@ export class AvaliableSpacesComponent implements OnInit {
         this.latitude = pos.lat;
         this.longitude = pos.lng;
         this.fetchData(this.latitude, this.longitude);
+        // this.geolocation();
       }
     )
   }
@@ -115,7 +116,12 @@ export class AvaliableSpacesComponent implements OnInit {
   searchInput: string = '';
   items: any[] = [];
 
-
+// geolocation(){
+//   navigator.geolocation.getCurrentPosition((position)=>{
+//     console.log("latitude",position.coords.latitude);
+//     console.log("longitude",position.coords.longitude);
+//   })
+// }
   fetchDatageo() {
     this.http.get<any>(`https://geocode.maps.co/search?q=${this.searchInput}&api_key=65f420ca87c30844685951qlke910c7`).subscribe(data => {
       if (data.length === 0) {
