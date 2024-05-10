@@ -3,7 +3,7 @@
   <div class="row">
     <div class="inner-div" *ngFor="let space of userData">
       <div class="img-div">
-        <img class="img" [src]="basePath+space.space_Image_Path || 'assets/Space_Owner_Images/alternate.png'"
+        <img class="img" [src]="space.space_Image_Path || 'assets/Space_Owner_Images/alternate.png'"
           alt="Space Image"  width="612px" height="408px">
       </div>
       <div class="data-div">
