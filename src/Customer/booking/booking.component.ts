@@ -23,6 +23,7 @@ import {
   IgxTimePickerModule,
 } from 'igniteui-angular';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { NgZone } from '@angular/core';
 declare var Razorpay: any;
 @Component({
   selector: 'app-booking',
@@ -66,7 +67,8 @@ export class BookingComponent implements OnInit {
     private auth: AuthService,
     private route: ActivatedRoute,
     private bookingService: BookingService,
-    private router: Router
+    private router: Router,
+    private ngZone: NgZone
   ) {
     this.minStartDate = new Date();
     const tomorrow = new Date();
@@ -192,11 +194,13 @@ export class BookingComponent implements OnInit {
         .subscribe((res: any) => {
           console.log("HEELLOOOOO")
           if (res.result) {
-            console.log("HEELLOOOOO from result")
-            this.router.navigateByUrl('/BookingSuccess')
-            window.location.reload();
-          console.log("HEELLOOOOO after routing")
-
+        //  console.log("HEELLOOOOO from result")
+        //  this.router.navigateByUrl('/BookingSuccess')
+        //  window.location.reload();
+        //  console.log("HEELLOOOOO after routing")
+          this.ngZone.run(() => {
+            this.router.navigateByUrl('/BookingSuccess');
+          });
           } else {
             this.bookingService.openSnackBar('booking failed ');
           }
