@@ -44,7 +44,8 @@
   background: #dad6d6;
   padding: 25px 30px;
   border-radius: 5px;
-  height: 60vh;
+  height: auto;
+  text-align:-webkit-center;
    margin-top: 10px;
   
 }
@@ -427,4 +428,8 @@ form .button input:hover {
     bottom: 0;
     opacity: 0;
   }
+}
+
+span{
+  float: inline-start;
 }

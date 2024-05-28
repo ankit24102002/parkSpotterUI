@@ -1,131 +1,129 @@
 <ng-container *ngIf="roleid === 2">
-    <app-owner-navbar></app-owner-navbar>
-  </ng-container>
-  <ng-container *ngIf="roleid === 3">
-    <app-customer-navbar></app-customer-navbar>
-  </ng-container>
-  <div class="row">
-    <div class="container" id="form-back">
-      <div class="title" *ngIf="!isEditable">Profile
-      <div class="title" *ngIf="isEditable">Update Profile
-      <form [formGroup]="myForm">
-        <div class="pic-holder">
-          <img id="profilePic" class="pic" [src]="userImage" />
-          <Input
-            class="uploadProfileInput"
-            formControlName="userImage"
-            type="file"
-            (change)="onFileSelected($event)"
-            name="profile_pic"
-            id="newProfilePhoto"
-            accept="image/*"
-            style="opacity: 0"
-            [(ngModel)]="userImage"
-          />
-          <label for="newProfilePhoto" class="upload-file-block">
-            <div class="text-center">
-              <div class="mb-2">
-                <i class="fa fa-camera fa-2x"></i>
-              </div>
-              <div class="text-uppercase">
-                Update <br />
-                Profile Photo
-              </div>
+  <app-owner-navbar></app-owner-navbar>
+</ng-container>
+<ng-container *ngIf="roleid === 3">
+  <app-customer-navbar></app-customer-navbar>
+</ng-container>
+<div class="row">
+  <div class="container">
+    <div class="title" *ngIf="!isEditable">Profile</div>
+    <div class="title" *ngIf="isEditable">Update Profile</div>
+    <form [formGroup]="myForm">
+      <div class="pic-holder">
+        <img id="profilePic" class="pic" [src]="userImage" />
+        <Input
+          class="uploadProfileInput"
+          formControlName="userImage"
+          type="file"
+          (change)="onFileSelected($event)"
+          name="profile_pic"
+          id="newProfilePhoto"
+          accept="image/*"
+          style="opacity: 0"
+          [(ngModel)]="userImage"
+        />
+        <label for="newProfilePhoto" class="upload-file-block">
+          <div class="text-center">
+            <div class="mb-2">
+              <i class="fa fa-camera fa-2x"></i>
             </div>
-          </label>
-        </div>
+            <div class="text-uppercase">
+              Update <br />
+              Profile Photo
+            </div>
+          </div>
+        </label>
+      </div>
+      <hr />
+      <div class="user__details">
         
-        <hr />
-        <div class="user__details">
-          
-          <div class="input__box" [ngClass]="{ blurred: !isEditable }">
-            <span class="details">Username</span>
-            <input
-              type="text"
-              class="blurred1"
-              formControlName="username"
-              placeholder="Username"
-              [readonly]="true"
-              title="Readonly"
-              (click)="showAlert()"
-              #usernameInput
-            />
-            <small
-              *ngIf="
-                myForm.controls['username'].dirty &&
-                myForm.hasError('required', 'username')
-              "
-              class="text-danger"
-              >*Username is required</small
-            >
-            <small
-              *ngIf="myForm.get('username')?.errors?.['minlength']"
-              class="text-danger"
-            >
-              * Name must be at least 4 characters long</small
-            >
-            <small
-              *ngIf="myForm.controls['username'].dirty&&myForm.get('username')?.errors?.['singleWord']"
-              class="text-danger"
-              >* Username must contain only one word</small
-            >
-          </div>
+        <div class="input__box" [ngClass]="{ blurred: !isEditable }">
+          <span class="details">Username</span>
+          <input
+            type="text"
+            class="blurred1"
+            formControlName="username"
+            placeholder="Username"
+            [readonly]="true"
+            title="Readonly"
+            (click)="showAlert()"
+            #usernameInput
+          />
+          <small
+            *ngIf="
+              myForm.controls['username'].dirty &&
+              myForm.hasError('required', 'username')
+            "
+            class="text-danger"
+            >*Username is required</small
+          >
+          <small
+            *ngIf="myForm.get('username')?.errors?.['minlength']"
+            class="text-danger"
+          >
+            * Name must be at least 4 characters long</small
+          >
+          <small
+            *ngIf="myForm.controls['username'].dirty&&myForm.get('username')?.errors?.['singleWord']"
+            class="text-danger"
+            >* Username must contain only one word</small
+          >
         </div>
-        <div class="user__details">
-          <div class="input__box" [ngClass]="{ blurred: !isEditable }">
-            <span class="details">Email</span>
-            <input
-              type="text"
-              formControlName="email"
-              placeholder="Email"
-              [readonly]="!isEditable"
-            />
-            <small
-              *ngIf="
-                myForm.controls['email'].dirty &&
-                myForm.hasError('required', 'email')
-              "
-              class="text-danger"
-              >*Email is required</small
-            >
-            <small *ngIf="myForm.hasError('email', 'email')" class="text-danger"
-              >*Email is Invalid</small
-            >
-          </div>
+      </div>
+      <div class="user__details">
+        <div class="input__box" [ngClass]="{ blurred: !isEditable }">
+          <span class="details">Email</span>
+          <input
+            type="text"
+            formControlName="email"
+            placeholder="Email"
+            [readonly]="!isEditable"
+          />
+          <small
+            *ngIf="
+              myForm.controls['email'].dirty &&
+              myForm.hasError('required', 'email')
+            "
+            class="text-danger"
+            >*Email is required</small
+          >
+          <small *ngIf="myForm.hasError('email', 'email')" class="text-danger"
+            >*Email is Invalid</small
+          >
         </div>
-        <div class="user__details">
-          <div class="input__box" [ngClass]="{ blurred: !isEditable }">
-            <span class="details">Phone No</span>
-            <input
-              type="text"
-              formControlName="phoneno"
-              placeholder="Phone no"
-              [readonly]="!isEditable"
-            />
-            <small
-              *ngIf="
-                myForm.controls['phoneno'].dirty &&
-                myForm.hasError('required', 'phoneno')
-              "
-              class="text-danger"
-              >*Phone no is required</small
-            >
-            <small
-              *ngIf="myForm.controls['phoneno'].touched&&myForm.controls['phoneno'].dirty&&myForm.get('phoneno')?.errors?.['invalidMobileNumber']"
-              class="text-danger"
-              >*Invalid mobile number format</small
-            >
-          </div>
+      </div>
+      <div class="user__details">
+        <div class="input__box" [ngClass]="{ blurred: !isEditable }">
+          <span class="details">Phone No</span>
+          <input
+            type="text"
+            formControlName="phoneno"
+            placeholder="Phone no"
+            [readonly]="!isEditable"
+          />
+          <small
+            *ngIf="
+              myForm.controls['phoneno'].dirty &&
+              myForm.hasError('required', 'phoneno')
+            "
+            class="text-danger"
+            >*Phone no is required</small
+          >
+          <small
+            *ngIf="myForm.controls['phoneno'].touched&&myForm.controls['phoneno'].dirty&&myForm.get('phoneno')?.errors?.['invalidMobileNumber']"
+            class="text-danger"
+            >*Invalid mobile number format</small
+          >
         </div>
-        <div class="tabs">
-          <button class="button-1" *ngIf="!isEditable" (click)="toggleEdit()">
-            Edit
-          </button>
-          <button class="button-2" *ngIf="isEditable" (click)="saveChanges()">
-            Save Changes
-          </button>
-        </div>
-      </form>
-    </div>
+      </div>
+      <div class="tabs">
+        <button class="button-1" *ngIf="!isEditable" (click)="toggleEdit()">
+          Edit
+        </button>
+        <button class="button-2" *ngIf="isEditable" (click)="saveChanges()">
+          Save Changes
+        </button>
+      </div>
+    </form>
   </div>
-  
+</div>

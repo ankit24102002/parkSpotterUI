@@ -20,7 +20,7 @@
             <div mat-card-avatar class="example-header-image"></div>
           </div>
         </mat-card-header>
-        <img mat-card-image [src]="basePath+user.space_Image_Path||'assets/Space_Owner_Images/space1.jpg'"
+        <img mat-card-image [src]="user.space_Image_Path||'assets/Space_Owner_Images/space1.jpg'"
           alt="Photo of a Shiba Inu"  width="330px" height="220px">
         <mat-card-content>
           <p class="description">Contact no.: {{ user.c_phoneno }}</p>
