@@ -15,7 +15,7 @@ export class BookingService {
 
   baseUrl: string = environment.baseUrl;
 
-  booking(spaceid: number, username: string, booking_amount: number, startBooking: Date, endBooking: Date,): Observable<any> {
+  booking(spaceid: number, username: string, booking_amount: number, startBooking: Date, endBooking: Date,paymentId:string): Observable<any> {
     const token = this.auth.gettoken(); 
     const Username = this.auth.getusername(); 
     const headers = new HttpHeaders({
@@ -29,7 +29,8 @@ export class BookingService {
       Booking_amount: booking_amount,
       SpaceID: spaceid,
       StartBooking: startBooking,
-      EndBooking: endBooking
+      EndBooking: endBooking,
+      PaymentId:paymentId
     };
     
     return this.http.post<any>(`${this.baseUrl}Space/CustomerDoBooking`, body, { headers: headers });

@@ -5,9 +5,9 @@
     <app-customer-navbar></app-customer-navbar>
   </ng-container>
   <div class="row">
-    <div class="container">
-      <div class="title" *ngIf="!isEditable">Profile</div>
-      <div class="title" *ngIf="isEditable">Update Profile</div>
+    <div class="container" id="form-back">
+      <div class="title" *ngIf="!isEditable">Profile
+      <div class="title" *ngIf="isEditable">Update Profile
       <form [formGroup]="myForm">
         <div class="pic-holder">
           <img id="profilePic" class="pic" [src]="userImage" />
@@ -34,6 +34,7 @@
             </div>
           </label>
         </div>
+        
         <hr />
         <div class="user__details">
           
